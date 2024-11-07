@@ -1,4 +1,4 @@
-package tec.iza.car.model;
+package tec.iza.car.model.marca;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
