@@ -36,9 +36,10 @@ import tec.iza.car.service.MarcaService;
             return ResponseFactory.ok(response);
         }
 
-        @DeleteMapping
-        public void delete() {
-            // Lógica para o endpoint
-        }
+    @DeleteMapping("/{id}")
+    public Response delete(@PathVariable("id") Integer id) {
+        service.excluir(id);
+        return ResponseFactory.ok("Modelo excluído com sucesso!");
+    }
     }
 
