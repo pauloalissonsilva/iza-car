@@ -16,6 +16,7 @@ public class MarcaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     private Integer id;
+    private boolean excluido = false;  // Campo para controle de exclusão lógica
     @Column(nullable = false, length = 30)
     private  String nome;
 

@@ -61,8 +61,11 @@ public class MarcaService {
     public MarcaResponse buscar(Integer id) {
         return converter(buscarEntity(id));
     }
+    // Exclusao logica sendo implementada
     public void excluir(Integer id){
-        repository.deleteById(id);
+        MarcaEntity entity = buscarEntity(id);
+        entity.setExcluido(true);
+        repository.save(entity);
     }
     public List<MarcaResponse> listar() {
                List<MarcaResponse> response = repository.findAll() .stream()
