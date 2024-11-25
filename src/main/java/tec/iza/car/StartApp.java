@@ -17,22 +17,9 @@ import java.util.List;
 @Component
 public class StartApp implements ApplicationRunner {
 
-    @Autowired
-    private VeiculoService service;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        VeiculoRequest novoVeiculo = new VeiculoRequest();
-        novoVeiculo.setAnoFabricacao("2024");
-        novoVeiculo.setCategoria(VeiculoCategoria.A);
-        novoVeiculo.setChassi(",56ef-9919ds");
-        novoVeiculo.setMarca(1);
-        novoVeiculo.setModelo(1);
-        novoVeiculo.setPlaca("53w52f2");
-        novoVeiculo.setDescricao("Cronos 1.4");
-        novoVeiculo.setKmAtual(10);
-
-        service.incluir(novoVeiculo);
     }
 }

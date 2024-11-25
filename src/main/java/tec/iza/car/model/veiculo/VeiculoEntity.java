@@ -1,6 +1,5 @@
 package tec.iza.car.model.veiculo;
 
-
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -12,37 +11,37 @@ import tec.iza.car.model.marca.MarcaEntity;
 @Table(name = "tab_veiculo")
 @Data
 public class VeiculoEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
-
     private Integer id;
 
-        @Column(length = 32, nullable = false)
-        private String chassi;
+    @Column(length = 32, nullable = false)
+    private String chassi;
 
-        @Column(length = 10, nullable = false)
-        private String placa;
+    @Column(length = 10, nullable = false)
+    private String placa;
 
-        @Column(length = 50, nullable = false)
-        private String descricao;
+    @Column(length = 50, nullable = false)
+    private String descricao;
 
-        @Column(name = "ano_fabricacao", length = 8, nullable = false)
-        private String anoFabricacao;
+    @Column(name = "ano_fabricacao", length = 8, nullable = false)
+    private String anoFabricacao;
 
-        @Enumerated(EnumType.STRING)
-        @Column(length = 1, nullable = false)
-        private VeiculoCategoria categoria;
+    @Enumerated(EnumType.STRING)
+    @Column(length = 1, nullable = false)
+    private VeiculoCategoria categoria;
 
-        @Column(nullable = false)
-        private Integer kmAtual;
+    @Column(nullable = false)
+    private Integer kmAtual;
 
-        @ManyToOne
-        @JoinColumn(name = "marca_id")
-        private MarcaEntity marca;
 
-        @Column(name = "modelo_id")
-        private Integer modelo;
+    @Column(name = "modelo_id", nullable = false)
+    private Integer modelo;
+
+    @Column(name = "marca_id", nullable = false)
+    private Integer marca;
 
 
 }

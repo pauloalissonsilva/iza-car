@@ -12,7 +12,7 @@ import tec.iza.car.service.ModeloService;
 @RequestMapping("modelos")
 public class ModeloResource {
     @Autowired
-    private ModeloService service;  // Corrigido para ModeloService
+    private ModeloService service;
 
     @PostMapping
     public Response post(@RequestBody ModeloRequest request) {
