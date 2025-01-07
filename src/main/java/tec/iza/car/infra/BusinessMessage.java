@@ -1,6 +1,7 @@
 package tec.iza.car.infra;
 
 
+import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 public enum BusinessMessage {
@@ -20,7 +21,9 @@ public enum BusinessMessage {
     }
     ;
     private final String code;
+    @Getter
     private final String message;
+    @Getter
     private final String suggestion;
 
     private int httpStatus;
@@ -35,15 +38,8 @@ public enum BusinessMessage {
         return HttpStatus.CONFLICT.value();
     }
 
-    public String getSuggestion() {
-        return suggestion;
-    }
-
     public String getCode() {
         return code;
-    }
-    public String getMessage() {
-        return message;
     }
 }
 

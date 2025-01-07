@@ -5,3 +5,4 @@ import tec.iza.car.model.marca.MarcaEntity;
 
 public interface MarcaRepository extends JpaRepository <MarcaEntity, Integer> {
 }
+

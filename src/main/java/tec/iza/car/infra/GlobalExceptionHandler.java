@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import tec.iza.car.infra.business.BusinessException;
+import tec.iza.car.infra.business.RecursoNaoEncontradoException;
 import tec.iza.car.infra.business.RegistroNaoLocalizadoException;
 import tec.iza.car.infra.http.Response;
 import tec.iza.car.infra.http.ResponseFactory;
@@ -61,4 +62,15 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
         return handleExceptionInternal(be, error, headers, status, request);
     }
+
+    @ExceptionHandler(RecursoNaoEncontradoException.class)
+    public ResponseEntity<Response> handleRecursoNaoEncontradoException(RecursoNaoEncontradoException ex) {
+        Response response = ResponseFactory.error(
+                HttpStatus.NOT_FOUND.value(),
+                ex.getMessage(),
+                "Verifique se o recurso existe antes de tentar atualizar."
+        );
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+    }
+
 }

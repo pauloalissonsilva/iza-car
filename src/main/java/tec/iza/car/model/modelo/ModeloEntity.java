@@ -22,6 +22,7 @@ public class ModeloEntity {
     @Column(nullable = false)
     private boolean excluido = false;  // Campo para controle de exclusão lógica
 
+    // Aqui usamos Apenas o Id da marca, não colocamos ManyToOne para evitar o autoAcoplamento
     @Column(name = "marca_id")
     private Integer marca;
 }

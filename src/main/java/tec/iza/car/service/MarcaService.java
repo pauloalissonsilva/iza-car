@@ -2,6 +2,7 @@ package tec.iza.car.service;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Service;
 import tec.iza.car.infra.business.CampoObrigatorioException;
 import tec.iza.car.infra.business.RegistroNaoLocalizadoException;
@@ -82,4 +83,10 @@ public class MarcaService {
         BeanUtils.copyProperties(entity, response);
                 return response;
     }
+
+    public boolean verificarExistencia(Integer id) {
+        SimpleJpaRepository marcaRepository = null;
+        return marcaRepository.existsById(id); // Altere para o nome real do seu repositório.
+    }
+
 }
